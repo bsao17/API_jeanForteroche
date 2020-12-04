@@ -18,4 +18,9 @@ class BackController extends AbstractController
             'path' => 'src/Controller/BackController.php',
         ]);
     }
+
+    public function billets($data): Response
+    {
+        return $this->json($data);
+    }
 }
