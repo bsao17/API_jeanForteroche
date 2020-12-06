@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Comments
- * @ApiResource()
- * @ORM\Table(name="comments", indexes={@ORM\Index(name="fk_ID_billets-ID", columns={"ID_billet"})})
+ * @ApiResource
+ * @ORM\Table(name="comments", indexes={@ORM\Index(name="fk_ID_billets_ID", columns={"ID_billet"})})
  * @ORM\Entity
  */
 class Comments
@@ -52,6 +52,59 @@ class Comments
      * })
      */
     private $idBillet;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getUser(): ?string
+    {
+        return $this->user;
+    }
+
+    public function setUser(string $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getContentsdb(): ?string
+    {
+        return $this->contentsdb;
+    }
+
+    public function setContentsdb(string $contentsdb): self
+    {
+        $this->contentsdb = $contentsdb;
+
+        return $this;
+    }
+
+    public function getDatedb(): ?\DateTimeInterface
+    {
+        return $this->datedb;
+    }
+
+    public function setDatedb(?\DateTimeInterface $datedb): self
+    {
+        $this->datedb = $datedb;
+
+        return $this;
+    }
+
+    public function getIdBillet(): ?Billets
+    {
+        return $this->idBillet;
+    }
+
+    public function setIdBillet(?Billets $idBillet): self
+    {
+        $this->idBillet = $idBillet;
+
+        return $this;
+    }
 
 
 }
