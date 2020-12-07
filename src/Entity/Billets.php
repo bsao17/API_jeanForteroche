@@ -7,7 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Billets
- * @ApiResource
+ * @ApiResource(
+ *      collectionOperations={"GET"},
+ *      itemOperations={"GET"}
+ * )
  * @ORM\Table(name="billets")
  * @ORM\Entity
  */

@@ -7,7 +7,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Comments
- * @ApiResource
+ * @ApiResource(
+ *      collectionOperations={
+ *           "GET", 
+ *           "POST", 
+ *      },
+ *      itemOperations={
+ *          "DELETE",
+ *          "PUT"
+ *      }
+ * )
  * @ORM\Table(name="comments", indexes={@ORM\Index(name="fk_ID_billets_ID", columns={"ID_billet"})})
  * @ORM\Entity
  */
