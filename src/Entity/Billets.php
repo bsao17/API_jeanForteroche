@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Billets
@@ -29,6 +30,7 @@ class Billets
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=200, nullable=false)
+     * @Assert\NotBlank(message="Title is required")
      */
     private $title;
 
@@ -36,6 +38,7 @@ class Billets
      * @var string
      *
      * @ORM\Column(name="content", type="text", length=65535, nullable=false)
+     * @Assert\NotBlank(message="Content is required")
      */
     private $content;
 

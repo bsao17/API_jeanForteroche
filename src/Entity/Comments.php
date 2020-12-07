@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Comments
@@ -35,6 +36,7 @@ class Comments
      * @var string
      *
      * @ORM\Column(name="user", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="User is required")
      */
     private $user;
 
@@ -42,6 +44,7 @@ class Comments
      * @var string
      *
      * @ORM\Column(name="contentsDb", type="text", length=16777215, nullable=false)
+     * @Assert\NotBlank(message="Content is required")
      */
     private $contentsdb;
 
@@ -59,6 +62,7 @@ class Comments
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="ID_billet", referencedColumnName="ID")
      * })
+     * @Assert\NotBlank(message="Billet is required")
      */
     private $idBillet;
 
