@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
- * @ApiResource
+ * 
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
@@ -20,6 +22,7 @@ class User
      * @ORM\Column(name="ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
      */
     private $id;
 
@@ -28,6 +31,7 @@ class User
      *
      * @ORM\Column(name="login", type="string", length=50, nullable=false)
      * @Assert\NotBlank(message="login is required")
+     * 
      */
     private $login;
 
@@ -36,6 +40,7 @@ class User
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Firstname is required")
+     * 
      */
     private $firstname;
 
@@ -44,6 +49,7 @@ class User
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Lastname is required")
+     * 
      */
     private $lastname;
 
@@ -59,6 +65,7 @@ class User
      * @var bool|null
      *
      * @ORM\Column(name="junior", type="boolean", nullable=true)
+     * 
      */
     private $junior;
 
@@ -66,6 +73,7 @@ class User
      * @var bool|null
      *
      * @ORM\Column(name="mentor", type="boolean", nullable=true)
+     * 
      */
     private $mentor;
 

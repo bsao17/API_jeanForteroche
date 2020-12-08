@@ -107,7 +107,7 @@ class Comments
         return $this;
     }
 
-    public function getIdBillet(): ?Billets
+    public function getIdBillet()
     {
         return $this->idBillet;
     }
