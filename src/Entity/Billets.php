@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -54,6 +56,16 @@ class Billets
      */
     private $authors;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Image::class, mappedBy="ad")
+     */
+    private $allImages;
+
+    public function __construct()
+    {
+        $this->allImages = new ArrayCollection();
+    }
+
     public function getAuthors(): ?string
     {
         return $this->authors;
@@ -103,6 +115,36 @@ class Billets
     public function setImagecover(?string $imagecover): self
     {
         $this->imagecover = $imagecover;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getAllImages(): Collection
+    {
+        return $this->allImages;
+    }
+
+    public function addAllImage(Image $allImage): self
+    {
+        if (!$this->allImages->contains($allImage)) {
+            $this->allImages[] = $allImage;
+            $allImage->setAd($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAllImage(Image $allImage): self
+    {
+        if ($this->allImages->removeElement($allImage)) {
+            // set the owning side to null (unless already changed)
+            if ($allImage->getAd() === $this) {
+                $allImage->setAd(null);
+            }
+        }
 
         return $this;
     }
