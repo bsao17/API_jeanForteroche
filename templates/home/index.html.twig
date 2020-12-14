@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue Sur l'api JMPM
+{% endblock %}
+
+
+{% block body %}
+<div class="container d-flex align-items-center w-100 m-auto" style="height: 100vh">
+	<div class="jumbotron">
+		<h1 class="display-3 text-center">Salut, et bienvenue sur<br> "Junior Mais Pas Manchot" Api ...</h1>
+		<pre class="h3 text-center"><em>Hi, and welcome on "Junior but not bad" Api ...</em> </pre>
+		<p class="lead text-center">
+			Here you can find data from database and for all participates, the signin page. <br>
+			If you also wish to participate in the life of the site, you can register by clicking on the button below.
+		</p>
+		<hr class="my-4">
+		<p class="text-center">Being a junior doesn't make it easy to find their first job easily, but here you can show everyone your amazing work plans and maybe start a new life, that's what we wish you here</p>
+		<p class="lead text-center">
+			<a class="btn btn-danger btn-lg" href="#" role="button">Signup</a>
+			<a class="btn btn-primary btn-lg" href="http://localhost:8000/signin" role="button">Signin</a>
+			<a class="btn btn-success btn-lg" href="#" role="button">Go to JMPM</a>
+		</p>
+	</div>
+</div>
+{% endblock %}
